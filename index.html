@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- API Key Setup Screen -->
+    <div id="setup-screen" class="screen active">
+      <div class="setup-card">
+        <div class="logo">🤖</div>
+        <h1>AI Assistant</h1>
+        <p>Enter your <a href="https://openrouter.ai/keys" target="_blank">OpenRouter API key</a> to get started.</p>
+        <div class="input-group">
+          <input type="password" id="api-key-input" placeholder="sk-or-..." autocomplete="off" />
+          <button id="start-btn">Start Chatting →</button>
+        </div>
+        <div id="key-error" class="error-msg"></div>
+        <div class="model-selector">
+          <label for="model-select">Model:</label>
+          <select id="model-select">
+            <option value="openai/gpt-4o-mini">GPT-4o Mini (fast & cheap)</option>
+            <option value="openai/gpt-4o">GPT-4o</option>
+            <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+            <option value="anthropic/claude-3-haiku">Claude 3 Haiku (fast)</option>
+            <option value="google/gemini-flash-1.5">Gemini Flash 1.5</option>
+            <option value="meta-llama/llama-3.1-70b-instruct">Llama 3.1 70B</option>
+            <option value="mistralai/mistral-7b-instruct">Mistral 7B</option>
+          </select>
+        </div>
+        <p class="disclaimer">Your API key is stored only in your browser and never sent to any server other than OpenRouter.</p>
+      </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-screen" class="screen">
+      <div class="chat-header">
+        <button id="back-btn" title="Change API key">⚙️</button>
+        <div class="chat-header-info">
+          <span class="chat-title">🤖 AI Assistant</span>
+          <span id="model-badge" class="model-badge"></span>
+        </div>
+        <button id="clear-btn" title="Clear chat">🗑️</button>
+      </div>
+
+      <div id="messages" class="messages">
+        <div class="message assistant">
+          <div class="bubble">Hey! I'm your AI assistant. How can I help you today?</div>
+        </div>
+      </div>
+
+      <div class="chat-input-bar">
+        <textarea id="user-input" placeholder="Type a message..." rows="1"></textarea>
+        <button id="send-btn">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
